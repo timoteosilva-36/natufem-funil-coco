@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula Natural Para Candidíase | NatuFem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #9b6bb0;
+            --primary-light: #c9a8d8;
+            --secondary: #d4a574;
+            --background: #faf8f5;
+            --text-primary: #2c2a2a;
+            --text-light: #6b6b6b;
+            --accent: #e8d4c4;
+            --white: #ffffff;
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ===== SEÇÕES GERAIS ===== */
+        section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            min-height: 100vh;
+        }
+
+        section.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ===== 1. PÁGINA PRINCIPAL (AQUECIMENTO) ===== */
+        #landing {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #faf8f5 0%, #f3ede7 100%);
+        }
+
+        .landing-content {
+            max-width: 700px;
+        }
+
+        .landing-badge {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .landing-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .landing-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .benefit-icon {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ===== BOTÕES ===== */
+        .btn {
+            padding: 14px 40px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #8b5a99;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(155, 107, 176, 0.3);
+        }
+
+        .btn-large {
+            padding: 16px 50px;
+            font-size: 18px;
+        }
+
+        /* ===== 2. SEÇÃO QUIZ ===== */
+        #quiz {
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #faf8f5 0%, #f3ede7 100%);
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .quiz-progress {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #e8e8e8;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: right;
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .quiz-question h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            padding: 14px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: var(--border-radius);
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            color: var(--text-primary);
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary-light);
+            background-color: #f9f7f5;
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+
+        .quiz-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e8e8e8;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .quiz-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .quiz-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-light);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .btn-primary-full {
+            flex: 1;
+        }
+
+        /* ===== 3. SEÇÃO CARREGAMENTO ===== */
+        #loading {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #faf8f5 0%, #f3ede7 100%);
+        }
+
+        .loading-container {
+            text-align: center;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--primary-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-container h2 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .loading-container p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        /* ===== 4. SEÇÃO RESULTADO BLOQUEADO ===== */
+        #result {
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #faf8f5 0%, #f3ede7 100%);
+        }
+
+        .result-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .result-badge {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #4caf50;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .result-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .result-subtitle {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .formula-block {
+            background-color: #f5f2f0;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .formula-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .formula-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .formula-item {
+            color: var(--text-primary);
+            font-size: 14px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .formula-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .formula-blurred {
+            filter: blur(6px);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .formula-info {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #faf8f5;
+            border-radius: 8px;
+        }
+
+        .unlock-section {
+            text-align: center;
+        }
+
+        .unlock-subtitle {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== MODAL DE CAPTURA ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--text-light);
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            clear: both;
+            text-align: center;
+        }
+
+        .modal-subtitle {
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e8e8e8;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .modal-buttons {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* ===== 5. PÁGINA PÓS-PAGAMENTO ===== */
+        #thank-you {
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #faf8f5 0%, #f3ede7 100%);
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .thank-you-subtitle {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .thank-you-content {
+            background-color: #f5f2f0;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .thank-you-content p {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .thank-you-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .landing-title {
+                font-size: 36px;
+            }
+
+            .quiz-container {
+                padding: 30px 20px;
+            }
+
+            .quiz-question h3 {
+                font-size: 20px;
+            }
+
+            .result-container {
+                padding: 30px 20px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+
+            .benefits-list {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. PÁGINA PRINCIPAL -->
+    <section id="landing" class="active">
+        <div class="container">
+            <div class="landing-content">
+                <div class="landing-badge">✓ Desenvolvido com IA</div>
+                <h1 class="landing-title">Fórmula Natural Personalizada Para Candidíase</h1>
+                <p class="landing-subtitle">Descubra a combinação de extratos naturais e probióticos desenvolvida pela IA e médicos naturistas para restaurar sua flora íntima.</p>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🌿</span>
+                        <span class="benefit-text">100% natural e manipulável em qualquer farmácia</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">👩‍⚕️</span>
+                        <span class="benefit-text">Desenvolvido por especialistas internacionais em medicina natural</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚡</span>
+                        <span class="benefit-text">Resultados visíveis em até 3 dias de uso</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💚</span>
+                        <span class="benefit-text">Sem efeitos colaterais, seguro e totalmente natural</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-large" onclick="goToQuiz()">
+                    Começar meu teste gratuito
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SEÇÃO QUIZ -->
+    <section id="quiz">
+        <div class="container">
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">1 de 6</div>
+                </div>
+
+                <div id="quizContent"></div>
+
+                <div class="quiz-buttons" id="quizButtons">
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" style="display: none;">← Voltar</button>
+                    <button class="btn btn-primary btn-primary-full" onclick="nextQuestion()" id="nextBtn">Próxima →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SEÇÃO CARREGAMENTO -->
+    <section id="loading">
+        <div class="container">
+            <div class="loading-container">
+                <div class="spinner"></div>
+                <h2>Gerando sua fórmula personalizada</h2>
+                <p>Analisando suas respostas e criando sua fórmula com IA...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SEÇÃO RESULTADO -->
+    <section id="result">
+        <div class="container">
+            <div class="result-container">
+                <div class="result-badge">✓ Fórmula Pronta</div>
+                <h2 class="result-title">Sua Fórmula Personalizada Está Pronta ✨</h2>
+                <p class="result-subtitle">Baseada em suas respostas, nossa IA desenvolveu uma fórmula única com extratos naturais e probióticos, totalmente manipulável em qualquer farmácia.</p>
+
+                <div class="formula-block">
+                    <div class="formula-title">Fórmula Personalizada:</div>
+                    <div class="formula-items formula-blurred" id="formulaItems">
+                        <div class="formula-item">Extrato de Uva-Ursi 200mg</div>
+                        <div class="formula-item">Lactobacillus crispatus 5 bilhões UFC</div>
+                        <div class="formula-item">Tea Tree Oil (Melaleuca) 100mg</div>
+                        <div class="formula-item">Vitamina E Natural 400 UI</div>
+                        <div class="formula-item">Inulina (Prebiótico) 500mg</div>
+                    </div>
+                </div>
+
+                <div class="formula-info">
+                    Essa combinação é usada por médicos naturistas internacionais e não está disponível pronta no Brasil — mas pode ser manipulada em qualquer farmácia. Você pode usar por 3 dias para aliviar os sintomas ou continuar o uso diário, pois é totalmente natural e segura.
+                </div>
+
+                <div class="unlock-section">
+                    <p class="unlock-subtitle">Desbloqueie sua fórmula completa agora</p>
+                    <button class="btn btn-primary btn-large" onclick="openCaptureModal()">
+                        💎 Desbloquear minha fórmula – R$ 29,90
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE CAPTURA -->
+    <div id="captureModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCaptureModal()">×</button>
+            <h2 class="modal-title">Liberar Minha Fórmula</h2>
+            <p class="modal-subtitle">Preencha os dados abaixo para desbloquear sua fórmula personalizada</p>
+
+            <form id="captureForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label">Nome Completo</label>
+                    <input type="text" class="form-input" id="userName" placeholder="Seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-input" id="userEmail" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Telefone (WhatsApp)</label>
+                    <input type="tel" class="form-input" id="userPhone" placeholder="(11) 99999-9999" required>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary btn-large">
+                        Acessar Checkout → Liberar Fórmula
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- PÁGINA PÓS-PAGAMENTO (SEÇÃO) -->
+    <section id="thank-you">
+        <div class="container">
+            <div class="thank-you-container">
+                <div class="success-icon">🎉</div>
+                <h2 class="thank-you-title">Parabéns!</h2>
+                <p class="thank-you-subtitle" id="thankYouMessage">Sua fórmula foi liberada com sucesso.</p>
+
+                <div class="thank-you-content">
+                    <p><strong>👉 Próximo passo:</strong> Acesse o <strong>App NatuFem</strong> para visualizar sua fórmula personalizada e gerar novas sempre que desejar.</p>
+                    <p><strong>💡 Dica:</strong> Salve o link do app em seus favoritos para acessar quando quiser.</p>
+                    <p><strong>📱 Link do app:</strong> www.natufem.app</p>
+                </div>
+
+                <button class="btn btn-primary btn-large" onclick="window.open('https://www.natufem.app', '_blank')">
+                    Acessar o App NatuFem
+                </button>
+
+                <p style="color: var(--text-light); font-size: 14px; margin-top: 20px;">
+                    Com amor e ciência natural – Equipe NatuFem 💜
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ===== DADOS DO QUIZ =====
+        const quizQuestions = [
+            {
+                question: "Qual seu principal desconforto atual?",
+                type: "options",
+                options: ["Candidíase", "Libido baixa", "Ressecamento íntimo", "Falta de energia", "Desequilíbrio da flora íntima"]
+            },
+            {
+                question: "Qual seu nome?",
+                type: "text",
+                placeholder: "Digite seu nome completo"
+            },
+            {
+                question: "Qual sua idade?",
+                type: "number",
+                placeholder: "Ex: 28"
+            },
+            {
+                question: "Há quanto tempo sente esse problema?",
+                type: "options",
+                options: ["Menos de 1 mês", "1 a 6 meses", "Mais de 6 meses"]
+            },
+            {
+                question: "Você usa anticoncepcional, pílula ou DIU?",
+                type: "options",
+                options: ["Sim", "Não"]
+            },
+            {
+                question: "Usou pomadas ou medicamentos tópicos nos últimos 14 dias?",
+                type: "options",
+                options: ["Sim", "Não"]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+        let userName = "";
+
+        function renderQuestion() {
+            const question = quizQuestions[currentQuestion];
+            const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
+            
+            document.getElementById("progressFill").style.width = progress + "%";
+            document.getElementById("progressText").textContent = `${currentQuestion + 1} de ${quizQuestions.length}`;
+
+            let html = `<div class="quiz-question"><h3>${question.question}</h3>`;
+
+            if (question.type === "options") {
+                html += '<div class="quiz-options">';
+                question.options.forEach((option, index) => {
+                    const selected = answers[currentQuestion] === option ? "selected" : "";
+                    html += `<button type="button" class="quiz-option ${selected}" onclick="selectOption(${currentQuestion}, '${option}')">${option}</button>`;
+                });
+                html += '</div>';
+            } else if (question.type === "text") {
+                const value = answers[currentQuestion] || "";
+                html += `<input type="text" class="quiz-input" id="inputField" placeholder="${question.placeholder}" value="${value}" />`;
+            } else if (question.type === "number") {
+                const value = answers[currentQuestion] || "";
+                html += `<input type="number" class="quiz-input" id="inputField" placeholder="${question.placeholder}" value="${value}" />`;
+            }
+
+            html += '</div>';
+            document.getElementById("quizContent").innerHTML = html;
+
+            if (currentQuestion > 0) {
+                document.getElementById("prevBtn").style.display = "block";
+            } else {
+                document.getElementById("prevBtn").style.display = "none";
+            }
+
+            if (currentQuestion === quizQuestions.length - 1) {
+                document.getElementById("nextBtn").textContent = "Concluir Quiz →";
+            } else {
+                document.getElementById("nextBtn").textContent = "Próxima →";
+            }
+        }
+
+        function selectOption(index, value) {
+            answers[index] = value;
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            // Validar resposta atual
+            const question = quizQuestions[currentQuestion];
+            if (question.type === "text" || question.type === "number") {
+                const inputValue = document.getElementById("inputField").value.trim();
+                if (!inputValue) {
+                    alert("Por favor, preencha o campo antes de continuar.");
+                    return;
+                }
+                answers[currentQuestion] = inputValue;
+                if (currentQuestion === 1) {
+                    userName = inputValue;
+                }
+            }
+
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            } else {
+                completeQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function completeQuiz() {
+            // Ir para tela de carregamento
+            showSection("loading");
+            
+            // Simular processamento de IA
+            setTimeout(() => {
+                showSection("result");
+            }, 2500);
+        }
+
+        function goToQuiz() {
+            showSection("quiz");
+            renderQuestion();
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+            window.scrollTo(0, 0);
+        }
+
+        function openCaptureModal() {
+            document.getElementById("captureModal").classList.add("active");
+        }
+
+        function closeCaptureModal() {
+            document.getElementById("captureModal").classList.remove("active");
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("userName").value;
+            const email = document.getElementById("userEmail").value;
+            const phone = document.getElementById("userPhone").value;
+
+            // Atualizar mensagem com nome
+            document.getElementById("thankYouMessage").textContent = `Parabéns, ${name}! Sua fórmula foi liberada com sucesso.`;
+
+            // Fechar modal
+            closeCaptureModal();
+
+            // Simular redirecionamento para checkout (em produção, seria um link real)
+            showSection("thank-you");
+
+            // Log dos dados capturados (em produção, seria enviado para backend/GTM)
+            console.log("Dados capturados:", { name, email, phone, answers });
+        }
+
+        // Fechar modal clicando fora dele
+        window.addEventListener("click", (event) => {
+            const modal = document.getElementById("captureModal");
+            if (event.target === modal) {
+                closeCaptureModal();
+            }
+        });
+
+        // Inicializar
+        renderQuestion();
+    </script>
+</body>
+</html>
