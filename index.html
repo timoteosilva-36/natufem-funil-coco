@@ -18,7 +18,7 @@
             line-height: 1.6;
         }
 
-        /* HERO SECTION - REDESIGNED FOR HIGH CONVERSION */
+        /* HERO SECTION */
         .hero {
             background: linear-gradient(135deg, #f9f5ff 0%, #fff9f5 100%);
             padding: 60px 20px;
@@ -47,7 +47,6 @@
             gap: 5px;
         }
 
-        /* Completely new headline - emotional hook */
         h1 {
             font-size: 42px;
             font-weight: 700;
@@ -56,7 +55,6 @@
             line-height: 1.2;
         }
 
-        /* Added subheadline with emotional connection */
         .subheadline {
             font-size: 20px;
             color: #d4547a;
@@ -64,7 +62,6 @@
             font-weight: 600;
         }
 
-        /* Added empathy section */
         .empathy-section {
             background: white;
             padding: 30px;
@@ -84,7 +81,6 @@
             color: #8b3fa8;
         }
 
-        /* Problem section showing women's frustration */
         .problems-section {
             background: white;
             padding: 40px 30px;
@@ -132,7 +128,6 @@
             font-size: 14px;
         }
 
-        /* Doctor comparison - showing waste of money */
         .doctor-comparison {
             background: #fff3e6;
             padding: 30px;
@@ -184,7 +179,6 @@
             color: #999;
         }
 
-        /* Authority and credibility section */
         .authority-section {
             background: linear-gradient(135deg, #f9f5ff 0%, #fff9f5 100%);
             padding: 40px 30px;
@@ -234,7 +228,6 @@
             font-size: 13px;
         }
 
-        /* Benefits and ease of use section */
         .benefits-section {
             background: white;
             padding: 40px 30px;
@@ -286,7 +279,6 @@
             font-size: 14px;
         }
 
-        /* CTA Button */
         .cta-button {
             background: linear-gradient(135deg, #d4547a 0%, #8b3fa8 100%);
             color: white;
@@ -310,7 +302,6 @@
             transform: translateY(0);
         }
 
-        /* Urgency badge */
         .urgency {
             color: #d4547a;
             font-size: 13px;
@@ -318,44 +309,204 @@
             font-weight: 600;
         }
 
-        .quiz, .loading, .result, .success-page {
+        /* MODAL STYLES - Elegant dark modal like the image */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 16px;
+            padding: 50px 40px;
+            max-width: 500px;
+            width: 90%;
+            color: white;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #d4547a 0%, #8b3fa8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-logo-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4547a 0%, #8b3fa8 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-left: 8px;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            text-align: center;
+            color: #b8c5d6;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .modal-form {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 84, 122, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .modal-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(212, 84, 122, 0.6);
+            box-shadow: 0 0 0 3px rgba(212, 84, 122, 0.1);
+        }
+
+        .modal-input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 500px) {
+            .modal-input-row {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                padding: 40px 25px;
+            }
+        }
+
+        .modal-submit-btn {
+            width: 100%;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .modal-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .result-section, .success-page {
             display: none;
             padding: 40px 20px;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .quiz.active, .loading.active, .result.active, .success-page.active {
+        .result-section.active, .success-page.active {
             display: block;
         }
 
     </style>
 </head>
 <body>
-    <!-- COMPLETELY REDESIGNED LANDING PAGE -->
-    <section class="hero active">
+    <!-- LANDING PAGE - HERO SECTION -->
+    <section class="hero">
         <div class="hero-container">
-            <!-- Trust badges at the top -->
             <div class="trust-badges">
                 <span>✓ 50+ Mil mulheres tratadas</span>
                 <span>✓ Desenvolvido por médicos</span>
                 <span>✓ 100% Natural</span>
             </div>
 
-            <!-- Main emotional headline -->
             <h1>Pare de Jogar Dinheiro Fora com Médicos e Descubra a Solução que os Doutores NÃO Querem que Você Conheça</h1>
 
-            <!-- Subheadline connecting to her pain -->
             <p class="subheadline">Fórmula Natural Personalizada com IA que Elimina Candidíase em até 3 Dias (Sem Pomadas, Sem Recaídas)</p>
 
-            <!-- Empathy section - showing you understand her -->
             <div class="empathy-section">
                 <p>🤍 <strong>Sabemos exatamente o que você passa:</strong></p>
                 <p>Aquele desconforto constante... consultórios caros onde o médico gasta 10 minutos e cobra R$ 300... receitas que não funcionam... a candidíase volta uma semana depois... mais uma consulta... mais R$ 300... e assim segue o ciclo.</p>
                 <p>Você não está sozinha. <strong>Milhões de mulheres passam pela mesma frustração</strong> porque a medicina tradicional trata apenas o sintoma, nunca a causa.</p>
             </div>
 
-            <!-- Problems section - agitating the pain -->
             <div class="problems-section">
                 <h3>❌ O Ciclo que Destrói Sua Vida:</h3>
                 <div class="problems-grid">
@@ -378,7 +529,6 @@
                 </div>
             </div>
 
-            <!-- Doctor comparison - showing what's wrong with traditional medicine -->
             <div class="doctor-comparison">
                 <h3>🔄 Compare: Método Tradicional vs. Nossa Fórmula</h3>
                 <div class="comparison-table">
@@ -409,7 +559,6 @@
                 </div>
             </div>
 
-            <!-- Authority section - building credibility -->
             <div class="authority-section">
                 <h3>👨‍⚕️ Desenvolvido por Especialistas Internacionais</h3>
                 <div class="authority-grid">
@@ -431,7 +580,6 @@
                 </div>
             </div>
 
-            <!-- Benefits and ease section -->
             <div class="benefits-section">
                 <h3>💜 Por Que Nossa Fórmula Funciona (E É Fácil):</h3>
                 <div class="benefits-list">
@@ -480,76 +628,68 @@
                 </div>
             </div>
 
-            <!-- Final CTA with urgency -->
-            <button class="cta-button" onclick="startQuiz()">
+            <button class="cta-button" onclick="openSignupModal()">
                 🎯 Descobrir Minha Fórmula Agora (Teste Rápido)
             </button>
             <p class="urgency">⏰ Apenas 2 minutos • Acesso imediato após responder</p>
         </div>
     </section>
 
-    <!-- Quiz Section -->
-    <section class="quiz">
-        <div style="max-width: 600px; margin: 0 auto;">
-            <div style="margin-bottom: 30px;">
-                <div style="width: 100%; background: #e0e0e0; height: 6px; border-radius: 3px;">
-                    <div id="progressBar" style="width: 0%; background: linear-gradient(90deg, #d4547a 0%, #8b3fa8 100%); height: 100%; border-radius: 3px; transition: width 0.3s;"></div>
+    <!-- ELEGANT SIGNUP MODAL - All fields visible at once -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeSignupModal()">×</button>
+            
+            <div class="modal-logo">
+                <div>
+                    <span class="modal-logo-text">NATU<span style="color: #d4547a;">FEM</span></span>
+                    <span class="modal-logo-badge">PRO</span>
                 </div>
-                <p id="questionCount" style="text-align: center; margin-top: 10px; color: #999; font-size: 13px;"></p>
             </div>
 
-            <div id="quiz-content"></div>
-        </div>
-    </section>
+            <h2 class="modal-title">Crie sua conta!</h2>
+            <p class="modal-description">Digite os dados que você utilizará para acessar o curso!<br>Você não precisará preencher novamente.</p>
 
-    <!-- Loading Section -->
-    <section class="loading">
-        <div style="text-align: center; padding: 60px 20px;">
-            <div style="animation: spin 2s linear infinite; font-size: 60px; margin-bottom: 20px;">⚙️</div>
-            <h2 style="color: #8b3fa8; margin-bottom: 10px;">Analisando Suas Respostas...</h2>
-            <p style="color: #666; font-size: 16px;">Nossa IA está gerando sua fórmula personalizada com base em seus dados. Isso pode levar alguns segundos...</p>
-        </div>
-        <style>
-            @keyframes spin { 100% { transform: rotate(360deg); } }
-        </style>
-    </section>
+            <form class="modal-form" onsubmit="submitSignupForm(event)">
+                <div class="modal-input-row">
+                    <input type="text" class="modal-input" id="firstName" placeholder="Nome" required>
+                    <input type="text" class="modal-input" id="lastName" placeholder="Sobrenome" required>
+                </div>
 
-    <!-- Result Section -->
-    <section class="result">
+                <input type="tel" class="modal-input" id="phone" placeholder="DDD + Telefone" required>
+                <input type="email" class="modal-input" id="email" placeholder="E-mail" required>
+
+                <button type="submit" class="modal-submit-btn">Fazer minha inscrição →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Result section after form submission -->
+    <section class="result-section" id="resultSection">
         <div style="max-width: 700px; margin: 0 auto; text-align: center;">
             <h2 style="color: #8b3fa8; margin-bottom: 10px; font-size: 28px;">✅ Sua Fórmula Personalizada Está Pronta!</h2>
             <p style="color: #d4547a; font-size: 18px; margin-bottom: 30px;">Baseada em suas respostas, nossa IA desenvolveu uma fórmula única para você</p>
 
-            <div style="background: white; padding: 40px; border-radius: 12px; margin: 30px 0; position: relative; overflow: hidden;">
-                <div id="formula-content" style="filter: blur(8px); user-select: none; pointer-events: none;">
-                    <h3 style="color: #8b3fa8; margin-bottom: 20px;">Sua Fórmula Personalizada:</h3>
-                    <div style="text-align: left; display: inline-block;">
-                        <p style="margin: 8px 0; color: #666;">• Extrato de Uva-Ursi (500mg)</p>
-                        <p style="margin: 8px 0; color: #666;">• Lactobacillus crispatus (2 bilhões CFU)</p>
-                        <p style="margin: 8px 0; color: #666;">• Tea Tree Oil destilado (100mg)</p>
-                        <p style="margin: 8px 0; color: #666;">• Vitamina E Natural (200 IU)</p>
-                        <p style="margin: 8px 0; color: #666;">• Extrato de Berberina (250mg)</p>
-                    </div>
+            <div style="background: white; padding: 40px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="color: #8b3fa8; margin-bottom: 20px;">Sua Fórmula Personalizada:</h3>
+                <div style="text-align: left; display: inline-block;">
+                    <p style="margin: 8px 0; color: #666;">• Extrato de Uva-Ursi (500mg)</p>
+                    <p style="margin: 8px 0; color: #666;">• Lactobacillus crispatus (2 bilhões CFU)</p>
+                    <p style="margin: 8px 0; color: #666;">• Tea Tree Oil destilado (100mg)</p>
+                    <p style="margin: 8px 0; color: #666;">• Vitamina E Natural (200 IU)</p>
+                    <p style="margin: 8px 0; color: #666;">• Extrato de Berberina (250mg)</p>
                 </div>
             </div>
 
-            <p style="color: #666; font-size: 15px; margin: 20px 0;">
-                💡 Essa combinação é usada por médicos naturistas internacionais. <strong>Você pode fazer manipular em QUALQUER farmácia</strong> do Brasil.
-            </p>
-
-            <p style="color: #666; font-size: 14px; background: #f9f5ff; padding: 15px; border-radius: 8px; margin: 20px 0;">
-                Use por 3 dias para aliviar os sintomas, ou continue diariamente. É 100% segura e natural—médicos recomendam!
-            </p>
-
-            <button class="cta-button" onclick="unlockFormula()">
+            <button class="cta-button" onclick="proceedToCheckout()">
                 💎 Desbloquear Minha Fórmula Agora (R$ 29,90)
             </button>
             <p class="urgency">🔒 Acesso vitalício após desbloqueio</p>
         </div>
     </section>
 
-    <!-- Success Page -->
-    <section class="success-page">
+    <!-- Success page after checkout -->
+    <section class="success-page" id="successPage">
         <div style="max-width: 700px; margin: 0 auto; text-align: center;">
             <h2 style="color: #8b3fa8; font-size: 32px; margin-bottom: 10px;">🎉 Parabéns!</h2>
             <p style="color: #d4547a; font-size: 20px; margin-bottom: 30px;">Sua fórmula foi liberada com sucesso!</p>
@@ -566,128 +706,47 @@
     </section>
 
     <script>
-        let currentQuestionIndex = 0;
-        const answers = {};
-
-        const questions = [
-            {
-                id: 'main_issue',
-                question: 'Qual seu principal desconforto?',
-                type: 'multiple-choice',
-                options: ['Candidíase recorrente', 'Libido baixa', 'Ressecamento', 'Falta de energia', 'Desequilíbrio da flora']
-            },
-            {
-                id: 'name',
-                question: 'Qual seu nome?',
-                type: 'text'
-            },
-            {
-                id: 'age',
-                question: 'Qual sua idade?',
-                type: 'number'
-            },
-            {
-                id: 'duration',
-                question: 'Há quanto tempo sente esse problema?',
-                type: 'multiple-choice',
-                options: ['Menos de 1 mês', '1 a 6 meses', 'Mais de 6 meses', 'Sempre tive']
-            },
-            {
-                id: 'contraceptive',
-                question: 'Usa anticoncepcional, pílula ou DIU?',
-                type: 'multiple-choice',
-                options: ['Sim', 'Não']
-            },
-            {
-                id: 'treatment',
-                question: 'Usou pomadas nos últimos 14 dias?',
-                type: 'multiple-choice',
-                options: ['Sim', 'Não']
-            }
-        ];
-
-        function startQuiz() {
-            document.querySelector('.hero').classList.remove('active');
-            document.querySelector('.quiz').classList.add('active');
-            currentQuestionIndex = 0;
-            showQuestion();
+        function openSignupModal() {
+            document.getElementById('signupModal').classList.add('active');
         }
 
-        function showQuestion() {
-            const q = questions[currentQuestionIndex];
-            const progress = ((currentQuestionIndex) / questions.length) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('questionCount').textContent = `Pergunta ${currentQuestionIndex + 1} de ${questions.length}`;
-
-            let html = `<h2 style="color: #8b3fa8; margin-bottom: 30px; font-size: 22px;">${q.question}</h2>`;
-
-            if (q.type === 'multiple-choice') {
-                html += '<div style="display: grid; gap: 12px;">';
-                q.options.forEach(option => {
-                    html += `<button onclick="answerQuestion('${q.id}', '${option}')" style="padding: 15px; background: white; border: 2px solid #e8dff5; border-radius: 8px; cursor: pointer; font-size: 16px; color: #333; font-weight: 500; transition: all 0.3s; text-align: left;"
-                        onmouseover="this.style.borderColor='#d4547a'; this.style.background='#f9f5ff';"
-                        onmouseout="this.style.borderColor='#e8dff5'; this.style.background='white';">
-                        ${option}
-                    </button>`;
-                });
-                html += '</div>';
-            } else if (q.type === 'text') {
-                html += `<input type="text" id="text-input" placeholder="Digite aqui..." style="width: 100%; padding: 12px; border: 2px solid #e8dff5; border-radius: 8px; font-size: 16px; margin-bottom: 15px;">
-                    <button onclick="answerTextQuestion('${q.id}')" class="cta-button" style="width: 100%;">Continuar</button>`;
-                setTimeout(() => document.getElementById('text-input').focus(), 100);
-            } else if (q.type === 'number') {
-                html += `<input type="number" id="number-input" placeholder="Ex: 28" style="width: 100%; padding: 12px; border: 2px solid #e8dff5; border-radius: 8px; font-size: 16px; margin-bottom: 15px;">
-                    <button onclick="answerTextQuestion('${q.id}')" class="cta-button" style="width: 100%;">Continuar</button>`;
-                setTimeout(() => document.getElementById('number-input').focus(), 100);
-            }
-
-            document.getElementById('quiz-content').innerHTML = html;
+        function closeSignupModal() {
+            document.getElementById('signupModal').classList.remove('active');
         }
 
-        function answerQuestion(id, value) {
-            answers[id] = value;
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                finishQuiz();
-            }
-        }
-
-        function answerTextQuestion(id) {
-            const input = document.getElementById('text-input') || document.getElementById('number-input');
-            if (input.value.trim()) {
-                answers[id] = input.value;
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                    showQuestion();
-                } else {
-                    finishQuiz();
-                }
-            }
-        }
-
-        function finishQuiz() {
-            document.querySelector('.quiz').classList.remove('active');
-            document.querySelector('.loading').classList.add('active');
+        function submitSignupForm(event) {
+            event.preventDefault();
             
-            setTimeout(() => {
-                document.querySelector('.loading').classList.remove('active');
-                document.querySelector('.result').classList.add('active');
-            }, 3000);
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value
+            };
+
+            console.log('Form data:', formData);
+
+            // Close modal and show result
+            closeSignupModal();
+            document.querySelector('.hero').style.display = 'none';
+            document.getElementById('resultSection').classList.add('active');
         }
 
-        function unlockFormula() {
-            const email = prompt('Para desbloquear sua fórmula, qual seu email?');
-            if (email) {
-                // Aqui você pode enviar para Google Tag Manager ou outro sistema
-                console.log('Email capturado:', email);
-                console.log('Respostas:', answers);
-                
-                document.querySelector('.result').classList.remove('active');
-                document.querySelector('.success-page').classList.add('active');
-            }
+        function proceedToCheckout() {
+            // Redirect to your checkout page/Stripe
+            window.location.href = 'https://checkout.natufem.com';
+            
+            // Or show success message
+            // document.getElementById('resultSection').classList.remove('active');
+            // document.getElementById('successPage').classList.add('active');
         }
+
+        // Close modal when clicking outside
+        document.getElementById('signupModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeSignupModal();
+            }
+        });
     </script>
 </body>
 </html>
